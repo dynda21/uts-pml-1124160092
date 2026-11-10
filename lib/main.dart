@@ -30,7 +30,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
@@ -43,11 +42,8 @@ class ProfilePage extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.more_vert),
             onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Menu profil'),
-                ),
-              );
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(const SnackBar(content: Text('Menu profil')));
             },
           ),
         ],
@@ -66,26 +62,22 @@ class ProfilePage extends StatelessWidget {
                   radius: 55,
                   backgroundColor: Colors.teal,
                   child: Text(
-                    'I',
-                    style: TextStyle(
-                      fontSize: 40,
-                      color: Colors.white,
-                    ),
+                    'D',
+                    style: TextStyle(fontSize: 40, color: Colors.white),
                   ),
                 ),
 
                 const SizedBox(height: 15),
 
                 Text(
-                  'Ina',
-                  style: Theme.of(context)
-                      .textTheme.headlineSmall,
+                  'Dind putri',
+                  style: Theme.of(context).textTheme.headlineSmall,
                 ),
 
                 const SizedBox(height: 5),
 
                 Text(
-                  'NIM: 2401010123',
+                  'NIM: 1124160092',
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
 
@@ -101,6 +93,28 @@ class ProfilePage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class InfoTile extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final String value;
+
+  const InfoTile({
+    super.key,
+    required this.icon,
+    required this.label,
+    required this.value,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Icon(icon),
+      title: Text(label),
+      subtitle: Text(value),
     );
   }
 }
